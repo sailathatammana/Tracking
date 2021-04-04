@@ -1,0 +1,10 @@
+.App {
+  /* min-width: 1em; */
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url(../assets/delivery3.jpg);
+  background-size: cover;
+}
+
+
