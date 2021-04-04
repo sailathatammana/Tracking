@@ -1,2 +1,13 @@
+@import "./shared.css";
 @import "./header.css";
-@import "./homePage.css";
+@import "./parcel.css";
+@import "./login.css";
+@import "./search.css";
+@import "./footer.css";
+@import "./app.css";
+@import "./fonts.css";
+@import "./faq.css";
+@import "./customerpage.css";  
+@import "./result.css";  
+@import "./trackingpage.css";
+@import "./homepage.css";   

@@ -5,33 +5,55 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 //Project files
 import Header from "./components/Header";
 import Faq from "./components/Faq";
+import Footer from "./components/Footer";
 import HomePage from "./pages/Homepage";
 import TrackingPage from "./pages/Trackingpage";
-import Result from "./components/Result";
+import CustomerPage from "./pages/CustomerPage";
+// import information from "./data/userInfo.json"
 import "./css/style.css";
 
 export default function App() {
-  useEffect(() => {
-    getData();
-  }, []);
+      const [information, setInformation] = useState([]);
+  const endPoint = "https://my.api.mockaroo.com/orders.json?key=e49e6840";
 
-  const getData = async () => {
-    const response = await fetch(
-      `https://my.api.mockaroo.com/orders.json?key=e49e6840`
-    );
-    const data = await response.json();
-    console.log(data);
-  };
-  return (
-    <Router>
-      <div className="App">
+  useEffect(() => {  
+    getData();
+  },[]);
+
+  const getData = async () => {  
+  try{
+    const response = await fetch(endPoint,{mode:"cors"});  
+      const data = await response.json();     
+      setInformation(data); 
+      console.log(information);
+  }catch{
+    console.log("Error while fetching API");
+  }
+};
+
+
+return (
+  <Router>
+    <div className="App">
       <Header />
-        <Switch>
-          <Route path="/" exact component={HomePage} />
-          <Route path="/Tracking" component={TrackingPage} />
-          <Route path="/Faq" component={Faq} />
-        </Switch>
-      </div>
-    </Router>
-  );
+      <Switch>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+        <Route exact path="/Customer/:parameter"
+          render={({ match }) => (
+            <CustomerPage parameter={match.params.parameter} information={information} />
+          )}
+        />
+        <Route path="/Result/:parameter"
+          render={({ match }) => (
+            <TrackingPage parameter={match.params.parameter} information={information} />
+          )}
+        />
+        <Route path="/Faq" component={Faq} />
+      </Switch>
+      <Footer/>
+    </div>
+  </Router>
+);
 }

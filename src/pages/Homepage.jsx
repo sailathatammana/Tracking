@@ -2,12 +2,12 @@
 import React from "react";
 
 //Project files
-import Search from "../components/Search"
+import Login from "../components/Login";
 
 export default function HomePage() {
   return (
-    <div className="home-page">
-      <Search/>
+    <div className="Home-page">
+      <Login/>
     </div>
   );
 }
