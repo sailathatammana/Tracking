@@ -12,7 +12,7 @@ export default function CustomerPage({ parameter, information }) {
   });
   if (result[0] === undefined) {
     return (
-      <div>
+      <div className="Customer-Page">
         <h1>No such user. Please Check the Username entered!</h1>
       </div>
     );
