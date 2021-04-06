@@ -14,6 +14,8 @@ export default function Faq() {
             <p>Tracking events usually appear 24-48 hours after receiving the Track and Trace ID. In general, once the shipment has reached our facility, a tracking event will appear.</p>
             <h4>Why is my tracking number/ID not working?</h4>
             <p>Please make sure you entered the correct tracking number in the correct format (explanations and examples of national and international tracking numbers are further up this site). If your tracking ID is not working, please contact your shipper or online shop.</p>
+            <h4>If I do not have a tracking number,is it possible to track shipment?</h4>
+            <p>If you do not have a tracking number, we advise you to contact your shipper. However, if you have other shipping reference numbers, they may work using shipment tracking systems of the specific business unit in charge of the shipment </p>
         </div>
     );
 }
